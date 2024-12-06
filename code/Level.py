@@ -18,7 +18,11 @@ from code.Player import Player
 
 class Level:
     def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
-        self.timeout = TIMEOUT_LEVEL
+        # Define a duração da fase com base no nível
+        self.timeout = TIMEOUT_LEVEL \
+            if name in ['Level1', 'Level2'] \
+            else TIMEOUT_LEVEL * 2
+        #self.timeout = TIMEOUT_LEVEL
         self.window = window
         self.name = name
         self.game_mode = game_mode
